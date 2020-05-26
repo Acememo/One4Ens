@@ -19,7 +19,7 @@ btInterface.transmitSpeed = 2k
 btInterface.transmitRange = 1.5
 
 # Define 6 different node groups
-Scenario.nrofHostGroups = 3
+Scenario.nrofHostGroups = 4
 
 ## Group-specific settings:
 # groupID : Group's identifier. Used as the prefix of host names
@@ -74,6 +74,10 @@ Group3.okMaps = 1
 Group3.speed = 2.7, 13.9
 Group3.nrofHosts = 40
 
+# group4 Destinos fantasma
+Group4.groupID = d
+Group4.nrofHosts = 1
+
 ## Message creation parameters 
 # How many event generators
 Events.nrof = 1
@@ -84,7 +88,7 @@ Events1.time = 0,19
 Events1.interval = 1
 Events1.hosts = 0,3  #Si se cambia el número de infectados iniciales, se debe cambiar esto
 Events1.prefix = COVID
-Events1.tohosts = 4,4148
+Events1.tohosts = 4139,4139
 
 
 
