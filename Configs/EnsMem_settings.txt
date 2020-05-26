@@ -44,7 +44,7 @@ Scenario.nrofHostGroups = 3
 # Common settings for all groups
 Group.movementModel = ShortestPathMapBasedMovement
 Group.router = EpidemicRouter
-Group.bufferSize = 1G
+Group.bufferSize = 1G #Buffer de 1 gigabyte, Dany: Hay que cambiar esto.
 Group.waitTime = 0, 36000
 # All nodes have the bluetooth interface
 Group.nrofInterfaces = 1
@@ -55,18 +55,18 @@ Group.speed = 0.5, 1.5
 Group.msgTtl = 1209600
 
 
-# group1 Suseptible
+# group1 Infectados iniciales, estos son los que traen el virus a la ciudad
 Group1.groupID = i
 Group1.waitTime = 0,36000
 Group1.nrofHosts = 4
 
-# group2 Infectious
+# group2 Estos son los grupos de peatones en las calles
 Group2.groupID = s
 Group2.waitTime = 0,36000
 #Group2.nrofHosts = 409531
 Group2.nrofHosts = 4095
 
-# group3 specific settings
+# group3 Estos son vehiculos, por su velocidad es poco probable que transmitan o sean transmitidos
 Group3.groupID = c
 # cars can drive only on roads
 Group3.okMaps = 1
@@ -82,7 +82,7 @@ Events1.class = MessageEventGenerator
 Events1.size = 25k,250k
 Events1.time = 0,19
 Events1.interval = 1
-Events1.hosts = 0,3
+Events1.hosts = 0,3  #Si se cambia el número de infectados iniciales, se debe cambiar esto
 Events1.prefix = COVID
 Events1.tohosts = 4,4148
 
