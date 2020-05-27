@@ -15,7 +15,7 @@ Scenario.endTime = 1209600
 # "Bluetooth" interface for all nodes
 btInterface.type = SimpleBroadcastInterface
 # Transmit speed of 2 Mbps = 250kBps
-btInterface.transmitSpeed = 2k
+btInterface.transmitSpeed = 1kBps      #Velocidad de transmicion(Para ajustar correctamente corrobore el buffer y tamanio de mensaje)
 btInterface.transmitRange = 1.5
 
 # Define 6 different node groups
@@ -48,7 +48,7 @@ Group.transmitEnergy = 0
 Group.scanResponseEnergy = 0
 Group.movementModel = ShortestPathMapBasedMovement
 Group.router = EpidemicRouter
-Group.bufferSize = 1k
+Group.bufferSize = 1k                                    #Buffer de 1 kilobyte
 Group.waitTime = 0, 36000
 # All nodes have the bluetooth interface
 Group.nrofInterfaces = 1
@@ -59,24 +59,28 @@ Group.speed = 0.5, 1.5
 Group.msgTtl = 1209600
 
 
-# group1 Suseptible
+# group1 ifectados iniciales, estos son los que traen el virus a la ciudad
 Group1.groupID = i
 Group1.waitTime = 0,36000
 Group1.nrofHosts = 4
 
-# group2 Infectious
+# group2 Infectious Estos son los grupos de peatones en las calles
 Group2.groupID = s
 Group2.waitTime = 0,36000
 #Group2.nrofHosts = 409531
 Group2.nrofHosts = 4095
 
-# group3 specific settings
+# group3 specific settings Estos son vehiculos, por su velocidad es poco probable que transmitan o sean transmitidos
 Group3.groupID = c
 # cars can drive only on roads
 Group3.okMaps = 1
 # 10-50 km/h
 Group3.speed = 2.7, 13.9
 Group3.nrofHosts = 40
+
+# group4 Destinos fantasma para que nunca lleguen los mensajes
+Group4.groupID = d
+Group4.nrofHosts = 1
 
 ## Message creation parameters 
 # How many event generators
@@ -100,7 +104,7 @@ Events1.tohosts = 4,4148
 # Message sizes (500kB - 1MB)
 #Events1.size = 25k,250k
 # range of message source/destination addresses
-#Events1.hosts = 0,3
+#Events1.hosts = 0,3                                   #Si se cambia el número de infectados iniciales, se debe cambiar esto
 # Message ID prefix
 #Events1.prefix = COVID
 
